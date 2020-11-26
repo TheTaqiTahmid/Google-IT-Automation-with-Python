@@ -1,0 +1,26 @@
+# findJane.sh
+
+#!/bin/bash
+
+> oldFiles.txt
+c=~
+files=$(grep " jane " ../data/list.txt | cut -d ' ' -f 3)
+for file in $files; do
+        if test -e $c$file; then echo $c$file >> oldFiles.txt
+        fi
+done
+
+
+# chnageJane.py
+
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+
+with open(sys.argv[1]) as file:
+        for f in file:
+                x=f.strip()
+                y=x.replace('jane','jdoe')
+                subprocess.run(["mv", x, y])
+

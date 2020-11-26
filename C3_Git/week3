@@ -1,0 +1,74 @@
+Distributed: Each developer hasa copy of the wjole repository on their local machine
+
+# To clone a repository:
+git clone <repository link>
+
+
+# To push the commit to remote repository
+git push
+
+
+# To fetch the latest commits from the remote repository and merge
+git pull
+
+
+# To save our username and password for the remote repository:
+gir config --global credential.helper cache
+
+
+# To get more information about remote:
+git remote show origin
+
+
+# To look at the remote branches
+git branch -r
+
+If we want to make changes to the remote branch, we Pull the remote branch, merge it with the local branch,
+then push it back to its origin
+
+
+# To sync local repository with remote repository:
+git fetch
+
+The difference between git fetch and git pull is:
+git fetch fetches remote updates but doesn't merge; git pull fetches remote updates and merges.
+
+# If we want to merge the changes from the remote repository into the local repository
+git merge origin/master
+
+
+
+
+# To create a local branch to associate it with a already created remote branch
+git checkout <branch name>  # git will automatically copy the contents of the remote branch to the local branch.
+
+
+# In order to get the contents of a remote branch without automatically merging
+git remote update
+
+
+# Typical git workflow - pull -> merge -> push
+
+
+# After resolving merge conflict with the remote repository:
+git add <conflicting file name>
+git commit
+
+
+# To push a commit into a remote branch
+git push -u origin <branch name>
+
+
+# To commit into a remote branch with a fast forward merge
+git checkout <branch name>
+git rebase master  # It will move the current branch on top of the master branch
+
+
+# To merge the new branch with the master branch
+git checkout master
+git merge refactor
+
+
+# Teó remove a branch
+git push --delete origin <branch name>  # It will delete the remote branch
+git branch -d <branch name>  # It will delete the local branch

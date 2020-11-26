@@ -1,0 +1,38 @@
+# Forking
+A way of creating a copy of the given repository so that it belongs to our user.
+
+# Pull request
+A commit or series of commits that you send to the owner of the repository  so that they incorporate it into their tree
+
+# To work on other people's project:
+At first we fork the repo to our account, and then clone the repo to our local directory
+
+# We we encounter any conflict while creating pull request
+we'd need to rebase our change against the current branch of the original repo so that it could be merged.
+
+# It is important to follow the guideline of the corresponding repository we are contributing
+
+# Squash our changes into a single commit
+git rebase -i  # It will open a text editor with all the options available
+
+# To force push current repo into the remote one
+git push -f
+
+# We can create issues to solve bug or update new features for our code in issus column of the repository in github
+
+# Continuous integration
+We can write automated tests to test the code for us and then use a continuous integration or CI system to run those
+tests automatically. A CI system will automatically build and test our codes every time we make a change
+
+# Continuous Deployment or Continuous Delivery (CD)
+Continuous deployment means the new code is deployed often. The goal is to avoid roll outs with a lot of changes between
+two versions of a project and instead do incremental updates with only a few changes at a time.
+
+Examples: Jenkins, Travis
+    # Pipelines
+        Pipelines specify the steps that need to run to get the result you want.
+    # Artifacts - Files that are generated as part of the pipeline
+
+# Setting up upstream to push changes to a forked repository
+git remote add upstream <Reo link>
+

@@ -1,0 +1,111 @@
+# Skipping the staging area
+
+git commit -a is a shortcut to stage any changes to tracked files and commit them in one step.
+It does not work on newly added files as they are not tracked
+
+
+# To observe actual where the changes happened in each commit
+
+git log -p  # This command is equivalent to diff -u command, where + shows the added contents and - removed contents
+
+# Another interesting flag of git log is:
+
+git log --stat  # his will cause git log to show some stats about the changes in the commit.
+
+
+# To observe a specific commit:
+
+git show commit_ID
+
+
+# To observe the changes made before committing:
+
+git diff # unstaged changes
+git diff --staged  # staged changes
+
+# Another way to review the changes before committing:
+
+git add -p  # For unstaged changes
+
+
+
+# To ignore/skip files in a repo:
+
+we have to create a .gitignore file and  add the filenames we want to skip
+
+git add .gitignore
+
+
+
+# Undoing changes
+
+git checkout <filename>
+
+In order to checkout individual changes instead of whole files
+
+git checkout -p <filename>
+
+
+
+# To remove a file from the staging area
+
+git reset HEAD <filename>
+
+
+
+# To add/modify changes to the current commit after the commit
+
+git commit --amend  # It overrides the previous commits
+
+
+
+# Rollbacks
+
+To invert a latest commit
+
+Git revert HEAD  # It doesn't just mean undo. Instead, it creates a commit that contains the inverse of all the changes made in the
+bad commit in order to cancel them out.
+
+To invert a commit with commit id
+
+git revert <commit_id>
+
+
+
+###### Branch ######
+
+A branch is a pointer to a particular commit. The default branch is the master. The master branch usually includes the
+known good state of the project and the branches are used for add new features or experiment with the project
+
+git branch  # This command is used to create, list, or delete branches
+
+# create a new branch:
+git branch new_features
+
+# Check a list of branches:
+git branch
+
+# To switch to other branch
+git checkout <branch_name>
+
+# To create a new branch and switch to it:
+git branch -b <branch_name>
+
+The files created in the new branch will not be part of the master branch as long as the branch is merged to the master
+
+# To delete a branch
+git branch -d <branch_name>
+
+# Merging branch to the master
+
+git merge <branch_name>
+
+If the changes are made in the same line of a code in both branches and committed, when merging git will output error
+message. We can investigate with 'git status' command. After resolving the conflict we have to run 'git commit' to wrap
+up the merge
+
+# To observe commit messages in graph format and oneline
+git log --graph --oneline
+
+# To abort a merge:
+git merge --abort
