@@ -11,7 +11,7 @@ for file in $files; do
 done
 
 
-# chnageJane.py
+# changeJane.py
 
 #!/usr/bin/env python3
 
